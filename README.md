@@ -1,20 +1,32 @@
 # notes
 work as my notebook
 grammar:
-# 这是一级标题
-## 这是二级标题
-### 这是三级标题
-#### 这是四级标题
-##### 这是五级标题
-###### 这是六级标题
+#### chrome升到62%时碰到0x80040902号错误：
 
-**这是加粗的文字**
-*这是倾斜的文字*`
+按照方法测试了一下：
+
+1、在windows10下运行cmd
+
+2、键入如下命令：
+
+taskkill /im chrome.exe /f
+ taskkill /im googleupdate.exe /f
+ taskkill /im google*.exe /fi “STATUS eq RUNNING” /f
+ taskkill /im google*.exe /fi “STATUS eq UNKNOWN” /f
+ taskkill /im google*.exe /fi “STATUS eq NOT RESPONDING” /f
+
+3、在运行时或报错，忽略，如果开着chrome，运行完以上命令后会自动关闭
+
+4、等待一会，再次运行chrome
+
+5、在url栏中输入“chrome://settings/help”*这是倾斜的文字*`
+
 ***这是斜体加粗的文字***
 ~~这是加删除线的文字~~
 
 >这是引用的内容
 >>这是引用的内容
+>>
 >>>>>>>>>>这是引用的内容
 
 ---
@@ -55,25 +67,12 @@ title可加可不加
 列表嵌套
 上一级和下一级之间敲三个空格即可
 
-表格：
-表头|表头|表头
----|:--:|---:
-内容|内容|内容
-内容|内容|内容
-
 第二行分割表头和内容。
 - 有一个就行，为了对齐，多加了几个
 文字默认居左
 -两边加：表示文字居中
 -右边加：表示文字居右
 注：原生的语法两边都要用 | 包起来。
-
-代码：
-(```)
-  代码...
-  代码...
-  代码...
-(```)
 
 流程：
 ```flow
@@ -85,3 +84,5 @@ st->op->cond
 cond(yes)->e
 cond(no)->op
 &```
+
+```
